@@ -176,7 +176,7 @@
 /* Mobile & Tablet (default) */
 .nav-links1 {
   display: flex;
-  gap: 1rem;       /* smaller spacing for mobile */
+  gap: 1rem;       /* spacing between links */
   list-style: none;
   flex-wrap: wrap;  /* allow wrapping if needed */
 }
@@ -189,11 +189,13 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+
+  padding: 6px 14px;        /* pill padding */
+  border-radius: 25px;       /* pill shape */
+  border: 2px solid #c9c9c9; /* always visible border */
+  background-color: #ffffff;  /* optional light background */
+  transition: none;           /* no hover effect */
   overflow: visible;
-  padding: 0;        /* remove pill padding */
-  border: none;      /* no border on small screens */
-  border-radius: 0;
-  transition: none;  /* no hover effect */
 }
 
 /* remove arrow on mobile */
@@ -213,9 +215,10 @@
   .nav-links1 a {
     padding: 8px 20px;          
     border-radius: 25px;         
-    border: 2px solid transparent;
+    border: 2px solid transparent; /* default invisible border */
     transition: all 0.3s ease;
     overflow: hidden;
+    background-color: transparent;
   }
 
   .nav-links1 a::after {
