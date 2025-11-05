@@ -173,41 +173,71 @@
     
     
     
+/* Mobile & Tablet (default) */
 .nav-links1 {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+  display: flex;
+  gap: 1rem;       /* smaller spacing for mobile */
+  list-style: none;
+  flex-wrap: wrap;  /* allow wrapping if needed */
+}
 
-    .nav-links1 a {
+.nav-links1 a {
   color: #777777;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;  /* adjust for smaller screens */
   font-weight: 400;
   position: relative;
   display: inline-flex;
   align-items: center;
-  transition: all 0.3s ease;
-  overflow: hidden;
-
-  padding: 8px 20px;        /* add some padding for the border */
-  border-radius: 25px;       /* pill shape */
-  border: 2px solid transparent; /* invisible border by default */
+  overflow: visible;
+  padding: 0;        /* remove pill padding */
+  border: none;      /* no border on small screens */
+  border-radius: 0;
+  transition: none;  /* no hover effect */
 }
 
-    .nav-links1 a::after {
-      content: '↗';
-      margin-left: 0.3rem;
-      opacity: 0;
-      transform: scale(0.8) translateY(2px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      font-size: 1em;
-    }
+/* remove arrow on mobile */
+.nav-links1 a::after {
+  content: '';
+  margin: 0;
+  opacity: 0;
+  transform: none;
+}
 
-    .nav-links1 a:hover::after {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
+/* Desktop only hover & spacing */
+@media (min-width: 981px) {
+  .nav-links1 {
+    gap: 2rem; /* larger spacing for desktop */
+  }
+
+  .nav-links1 a {
+    padding: 8px 20px;          
+    border-radius: 25px;         
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .nav-links1 a::after {
+    content: '↗';
+    margin-left: 0.3rem;
+    opacity: 0;
+    transform: scale(0.8) translateY(2px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1em;
+  }
+
+  .nav-links1 a:hover {
+    color: #000000;
+    border-color: #c9c9c9;
+    background-color: #ffffff;
+  }
+
+  .nav-links1 a:hover::after {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
     /* Hover effect */
 .nav-links1 a:hover {
